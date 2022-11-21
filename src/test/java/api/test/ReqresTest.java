@@ -11,7 +11,10 @@ import io.restassured.mapper.ObjectMapperType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.junit.Test;
+import utils.dbase.JdbcConnector;
+import utils.dbase.SqlQueries;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -21,6 +24,7 @@ public class ReqresTest {
 
     private static final String BASE_URL = "https://reqres.in/api/";
     Request request = new Request();
+    JdbcConnector jdbc = new JdbcConnector();
     RequestSpecification requestSpecification = RestAssured.given();
 
     /**
@@ -58,6 +62,17 @@ public class ReqresTest {
                 request.postRequest(requestSpecification, 200).as(ResponseRegistration.class, ObjectMapperType.GSON);
         Assert.assertEquals(registration.getId(), 4);
         Assert.assertEquals(registration.getToken(), "QpwL5tke4Pnpja7X4");
+    }
+
+    /**
+     * Якобы мы сделали API запрос и нужно проверить изменения в БД
+     */
+    @Test
+    public void checkNewUserInDataBase() throws Exception {
+        ResultSet resultSet = jdbc.requestToDataBase(SqlQueries.SELECT_NAME_WHERE_AGE_IS_30_IN_DB);
+        while (resultSet.next()) {
+            Assert.assertEquals("Alice", resultSet.getString(1));
+        }
     }
 
 }
