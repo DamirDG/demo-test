@@ -4,7 +4,7 @@ import utils.ConfProperties;
 
 import java.sql.*;
 
-public class JdbcConnector {
+public class DbConnector {
 
     /**
      * Подсоединяемся к нужной базе.

@@ -11,7 +11,7 @@ import io.restassured.mapper.ObjectMapperType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.junit.Test;
-import utils.dbase.JdbcConnector;
+import utils.dbase.DbConnector;
 import utils.dbase.SqlQueries;
 
 import java.sql.ResultSet;
@@ -24,7 +24,7 @@ public class ReqresTest {
 
     private static final String BASE_URL = "https://reqres.in/api/";
     Request request = new Request();
-    JdbcConnector jdbc = new JdbcConnector();
+    DbConnector jdbc = new DbConnector();
     RequestSpecification requestSpecification = RestAssured.given();
 
     /**
