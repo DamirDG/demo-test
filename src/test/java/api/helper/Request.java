@@ -3,7 +3,6 @@ package api.helper;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
-import io.restassured.specification.RequestSpecification;
 
 /**
  * Запросы Rest Assured
@@ -13,18 +12,16 @@ public class Request {
     /**
      * GET запрос
      *
-     * @param specification спецификауия запроса с параметрами
-     * @param statusCode    код ответа, который мы ожидаем
+     * @param basePath ресурс к которому идет запрос
      * @return возвращаем ResponseBody запроса
      */
-    public ResponseBody getRequest(RequestSpecification specification, int statusCode) {
+    public ResponseBody getRequest(String basePath) {
         Response response = RestAssured
                 .given()
-                .spec(specification)
-                .get()
+                //.log().all()
+                .get(basePath)
                 .then()
                 //.log().all()
-                .statusCode(statusCode)
                 .extract()
                 .response();
         return response.getBody();
@@ -33,19 +30,18 @@ public class Request {
     /**
      * POST запрос
      *
-     * @param specification спецификауия запроса с параметрами
-     * @param statusCode    код ответа, который мы ожидаем
+     * @param basePath ресурс к которому идет запрос
+     * @param body     тело запроса
      * @return возвращаем ResponseBody запроса
      */
-    public ResponseBody postRequest(RequestSpecification specification, int statusCode) {
+    public ResponseBody postRequest(String basePath, Object body) {
         Response response = RestAssured
                 .given()
-                .spec(specification)
                 //.log().all()
-                .post()
+                .body(body)
+                .post(basePath)
                 .then()
                 //.log().all()
-                .statusCode(statusCode)
                 .extract()
                 .response();
         return response.getBody();

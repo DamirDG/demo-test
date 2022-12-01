@@ -1,6 +1,7 @@
 package ui.page;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -16,6 +17,7 @@ public class SearchResultGooglePage {
      *
      * @return текст элемента headerOfResultWikipedia
      */
+    @Step("Возвращаем текст заголовка Википедии")
     public String returnHeaderOfWikipedia() {
         return headerOfResultWikipedia.getText();
     }

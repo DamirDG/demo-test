@@ -2,6 +2,7 @@ package ui.page;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -22,6 +23,7 @@ public class MainSearchGooglePage {
      * @param text - текст, который вводим в поле поиска
      * @return - возвращаем SearchResultGooglePage. Страница результатов поиска.
      */
+    @Step("Вводим в поле поиск заданный текст и нажимаем Enter")
     public SearchResultGooglePage inputTextAndSearchInGoogle(String text) {
         inputSearchField.sendKeys(text);
         inputSearchField.pressEnter();

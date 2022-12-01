@@ -18,7 +18,7 @@ public class ConfProperties {
 
 
     static {
-        try (FileInputStream fileInputStream = new FileInputStream("src/main/resources/config.properties")) {
+        try (FileInputStream fileInputStream = new FileInputStream("src/test/resources/config.properties")) {
             properties.load(fileInputStream);
         } catch (IOException e) {
             LOGGER.error("Error reading configuration file {}", e.getMessage());
@@ -35,6 +35,3 @@ public class ConfProperties {
         return properties.getProperty(key);
     }
 }
-
-
-
