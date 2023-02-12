@@ -15,7 +15,7 @@ public class MainSearchGooglePage {
         Selenide.open(url);
     }
 
-    private final SelenideElement inputSearchField = $x("//input[@title='Поиск']");//Локатор поля поиска на странице Google
+    private final SelenideElement inputSearchField = $x("//input");//Локатор поля поиска на странице Google
 
     /**
      * Вводим в поле поиск заданный текст и нажимаем Enter
