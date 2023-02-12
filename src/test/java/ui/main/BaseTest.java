@@ -13,6 +13,7 @@ abstract public class BaseTest {
         Configuration.driverManagerEnabled = true;
         Configuration.browserSize = "1920x1080";
         Configuration.headless = true;
+        Configuration.timeout = 10000;
     }
 
     @BeforeAll
