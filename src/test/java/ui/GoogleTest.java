@@ -32,7 +32,7 @@ public class GoogleTest extends BaseTest {
     @Description("Открываем google.com, ищем wikipedia, проверяем заголовок")
     public void checkGoogleSearchTest() {
         Assertions.assertEquals(
-                "Википедия — свободная энциклопедияll", new MainSearchGooglePage(BASE_URL)
+                "Википедия — свободная энциклопедия", new MainSearchGooglePage(BASE_URL)
                         .inputTextAndSearchInGoogle("wikipedia")
                         .returnHeaderOfWikipedia());
     }

@@ -57,7 +57,7 @@ public class ReqresTest {
                 Specifications.responseSpec(200));
         ResponseRegistration registration =
                 request.postRequest("register", registrationBody).as(ResponseRegistration.class, ObjectMapperType.GSON);
-        Assertions.assertEquals(registration.getId(), 5);
+        Assertions.assertEquals(registration.getId(), 4);
         Assertions.assertEquals(registration.getToken(), "QpwL5tke4Pnpja7X4");
         //Assert.assertEquals(registration.getError(), "Missing password");
     }
