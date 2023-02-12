@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$x;
  */
 public class SearchResultGooglePage {
 
-    private final SelenideElement headerOfResultWikipedia = $x("//a[contains(@href, 'https://ru.wikipedia.org')]//h3");
+    private final SelenideElement headerOfResultWikipedia = $x("//a[contains(@href, 'wikipedia.org')]//h3");
 
     /**
      * Возвращаем текст заголовка Википедии
